@@ -1,7 +1,7 @@
 defmodule LiveFilter.MixProject do
   use Mix.Project
 
-  @version "0.1.3"
+  @version "0.1.4"
   @source_url "https://github.com/cpursley/livefilter"
 
   def project do
@@ -28,7 +28,7 @@ defmodule LiveFilter.MixProject do
   # Run "mix help compile.app" to learn about applications.
   def application do
     [
-      extra_applications: [:logger]
+      extra_applications: [:logger, :phoenix, :phoenix_live_view]
     ]
   end
 
