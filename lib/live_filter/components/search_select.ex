@@ -85,7 +85,7 @@ defmodule LiveFilter.Components.SearchSelect do
             <div class="relative">
               <.icon
                 name="hero-magnifying-glass"
-                class="absolute left-2 top-2 h-4 w-4 text-muted-foreground"
+                class="absolute left-2 top-[10px] h-4 w-4 text-muted-foreground"
               />
               <.input
                 id={@search_id}

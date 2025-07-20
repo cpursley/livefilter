@@ -70,7 +70,7 @@ defmodule LiveFilter.Components.QuickFilter do
   defp render_filter_input(%{type: :string} = assigns) do
     ~H"""
     <div class="relative">
-      <.icon :if={@icon} name={@icon} class="absolute left-2 top-2 h-4 w-4 text-muted-foreground" />
+      <.icon :if={@icon} name={@icon} class="absolute left-2 top-[10px] h-4 w-4 text-muted-foreground" />
       <.input
         type="text"
         value={@value || ""}
@@ -96,7 +96,7 @@ defmodule LiveFilter.Components.QuickFilter do
   defp render_filter_input(%{type: type} = assigns) when type in [:integer, :float] do
     ~H"""
     <div class="relative">
-      <.icon :if={@icon} name={@icon} class="absolute left-2 top-2 h-4 w-4 text-muted-foreground" />
+      <.icon :if={@icon} name={@icon} class="absolute left-2 top-[10px] h-4 w-4 text-muted-foreground" />
       <.input
         type="number"
         value={@value || ""}
