@@ -1,12 +1,12 @@
 defmodule LiveFilter.MixProject do
   use Mix.Project
 
-  @version "0.1.4"
+  @version "0.1.5"
   @source_url "https://github.com/cpursley/livefilter"
 
   def project do
     [
-      app: :live_filter,
+      app: :livefilter,
       version: @version,
       elixir: "~> 1.14",
       elixirc_paths: elixirc_paths(Mix.env()),

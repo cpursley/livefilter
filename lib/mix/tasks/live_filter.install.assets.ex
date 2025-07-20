@@ -52,7 +52,7 @@ defmodule Mix.Tasks.LiveFilter.Install.Assets do
 
     app_dir = File.cwd!()
     assets_dir = Path.join([app_dir, "assets", "js", "hooks", "live_filter"])
-    source_dir = Path.join([:code.priv_dir(:live_filter), "static", "js", "hooks"])
+    source_dir = Path.join([:code.priv_dir(:livefilter), "static", "js", "hooks"])
 
     # Create target directory
     case File.mkdir_p(assets_dir) do
