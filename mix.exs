@@ -1,7 +1,7 @@
 defmodule LiveFilter.MixProject do
   use Mix.Project
 
-  @version "0.1.1"
+  @version "0.1.2"
   @source_url "https://github.com/cpursley/livefilter"
 
   def project do
@@ -53,6 +53,7 @@ defmodule LiveFilter.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
+      {:phoenix, "~> 1.7"},
       {:phoenix_live_view, "~> 1.0.0"},
       {:ecto, "~> 3.10"},
       {:ecto_sql, "~> 3.10"},

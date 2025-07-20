@@ -49,7 +49,7 @@ defmodule Mix.Tasks.LiveFilter.Install.Assets do
   def run(_args) do
     # Ensure the application is loaded
     Mix.Task.run("app.start", [])
-    
+
     app_dir = File.cwd!()
     assets_dir = Path.join([app_dir, "assets", "js", "hooks", "live_filter"])
     source_dir = Path.join([:code.priv_dir(:live_filter), "static", "js", "hooks"])
