@@ -32,7 +32,6 @@ defmodule LiveFilter.Components.FilterSelector do
   """
   use Phoenix.LiveComponent
   import SaladUI.Button
-  import SaladUI.Icon
   import SaladUI.DropdownMenu
 
   @impl true
@@ -84,7 +83,7 @@ defmodule LiveFilter.Components.FilterSelector do
         <.dropdown_menu id={"#{@id}-dropdown"}>
           <.dropdown_menu_trigger>
             <.button variant={@variant} size={@size} class={@class}>
-              <.icon name={@icon} class="mr-2 h-4 w-4" />
+              <span class={[@icon, "mr-2 h-4 w-4"]} />
               {@label}
             </.button>
           </.dropdown_menu_trigger>
@@ -102,10 +101,9 @@ defmodule LiveFilter.Components.FilterSelector do
                 )
               }
             >
-              <.icon
+              <span
                 :if={get_filter_icon(filter)}
-                name={get_filter_icon(filter)}
-                class="mr-2 h-4 w-4"
+                class={[get_filter_icon(filter), "mr-2 h-4 w-4"]}
               />
               {get_filter_label(filter)}
             </.dropdown_menu_item>
@@ -113,7 +111,7 @@ defmodule LiveFilter.Components.FilterSelector do
         </.dropdown_menu>
       <% else %>
         <.button variant={@variant} size={@size} class={@class} disabled={true}>
-          <.icon name={@icon} class="mr-2 h-4 w-4" />
+          <span class={[@icon, "mr-2 h-4 w-4"]} />
           {@label}
         </.button>
       <% end %>

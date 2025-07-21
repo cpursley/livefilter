@@ -14,7 +14,6 @@ defmodule LiveFilter.Components.ColumnSettings do
   """
   use Phoenix.LiveComponent
   import SaladUI.Button
-  import SaladUI.Icon
   import SaladUI.DropdownMenu
   alias Phoenix.LiveView.JS
 
@@ -35,7 +34,7 @@ defmodule LiveFilter.Components.ColumnSettings do
       <.dropdown_menu id={"#{@id}-dropdown"}>
         <.dropdown_menu_trigger>
           <.button variant="ghost" size="icon" class="h-8 w-8">
-            <.icon name="hero-cog-6-tooth" class="h-4 w-4" />
+            <span class="hero-cog-6-tooth h-4 w-4" />
           </.button>
         </.dropdown_menu_trigger>
 
@@ -51,7 +50,7 @@ defmodule LiveFilter.Components.ColumnSettings do
               <span>{config.label}</span>
               <div class="ml-auto">
                 <%= if column in @visible_columns do %>
-                  <.icon name="hero-check" class="h-4 w-4" />
+                  <span class="hero-check h-4 w-4" />
                 <% end %>
               </div>
             </.dropdown_menu_item>
