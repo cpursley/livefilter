@@ -22,7 +22,7 @@ Add to your `mix.exs`:
 ```elixir
 def deps do
   [
-    {:livefilter, "~> 0.1.6"}
+    {:livefilter, "~> 0.1.7"}
   ]
 end
 ```

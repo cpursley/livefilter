@@ -11,7 +11,6 @@ defmodule LiveFilter.Components.Select do
   use Phoenix.Component
   import SaladUI.DropdownMenu
   import SaladUI.Button
-  import SaladUI.Icon
   import SaladUI.Separator
 
   @doc """
@@ -49,7 +48,7 @@ defmodule LiveFilter.Components.Select do
 
   def select(assigns) do
     ~H"""
-    <div id={"#{@id}-wrapper"}>
+    <div id={"#{@id}-wrapper"} class="relative inline-flex items-center">
       <.dropdown_menu id={@id}>
         <.dropdown_menu_trigger>
           <.button
@@ -57,15 +56,16 @@ defmodule LiveFilter.Components.Select do
             size={@size}
             class={[
               @class,
-              "gap-1 items-center"
+              "gap-1 items-center",
+              @clearable && @selected && "pr-8"
             ]}
           >
-            <.icon :if={@icon} name={@icon} class="h-4 w-4" />
+            <span :if={@icon} class={[@icon, "h-4 w-4"]} />
             {render_button_content(assigns)}
           </.button>
         </.dropdown_menu_trigger>
 
-        <.dropdown_menu_content align="end" class="w-[200px]">
+        <.dropdown_menu_content align="start">
           <%= for {value, label} <- @options do %>
             <.dropdown_menu_item
               phx-click={@on_change}
@@ -74,23 +74,35 @@ defmodule LiveFilter.Components.Select do
             >
               <span>{label}</span>
               <%= if @selected == value do %>
-                <.icon name="hero-check" class="ml-auto h-4 w-4" />
+                <span class="hero-check ml-auto h-4 w-4" />
               <% end %>
             </.dropdown_menu_item>
           <% end %>
 
           <%= if @clearable && @selected do %>
-            <.dropdown_menu_separator />
+            <.dropdown_menu_separator class="my-2" />
             <.dropdown_menu_item
               phx-click={@on_change}
               phx-value-value=""
               class="text-muted-foreground"
             >
-              <.icon name="hero-x-mark" class="mr-2 h-4 w-4" /> Clear
+              <span class="hero-x-circle mr-2 h-4 w-4" /> Clear selection
             </.dropdown_menu_item>
           <% end %>
         </.dropdown_menu_content>
       </.dropdown_menu>
+
+      <%= if @clearable && @selected do %>
+        <button
+          type="button"
+          class="absolute right-2 h-4 w-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 flex items-center justify-center"
+          phx-click={@on_change}
+          phx-value-value=""
+        >
+          <span class="hero-x-mark h-4 w-4" />
+          <span class="sr-only">Clear selection</span>
+        </button>
+      <% end %>
     </div>
     """
   end

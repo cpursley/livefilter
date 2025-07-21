@@ -80,7 +80,7 @@ defmodule LiveFilter.Components.SearchSelect do
           </.button>
         </.dropdown_menu_trigger>
 
-        <.dropdown_menu_content align="start" class="w-[280px] p-0">
+        <.dropdown_menu_content align="start" class="p-0">
           <div :if={@searchable} class="p-2 pb-0">
             <div class="relative">
               <.icon
